@@ -111,12 +111,12 @@ class LinkedList:
 
     # dlugosc
     def len(self):
-        count = 0
+        licznik = 0
         a = self.head
         while (a):
-            count += 1
+            licznik += 1
             a = a.next
-        return print(f'ilosc elementow w liscie: {count}')
+        return print(f'ilosc elementow w liscie: {licznik}')
 
 
 
