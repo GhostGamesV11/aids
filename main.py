@@ -31,13 +31,13 @@ class LinkedList:
 
     # zwróci węzeł znajdujący się na wskazanej pozycji
     def node(self, at: int) -> Node:
-        current = self.head
+        a = self.head
         count = 0
-        while current is not None:
+        while a is not None:
             if count == at:
-                return current
+                return a
             count += 1
-            current = current.next
+            a = a.next
 
 
     # #wstawi nowy węzeł tuż za węzłem wskazanym w parametrze
