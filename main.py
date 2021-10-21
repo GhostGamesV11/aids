@@ -41,18 +41,28 @@ class LinkedList:
 
 
     # #wstawi nowy węzeł tuż za węzłem wskazanym w parametrze
-    def insert(self, value: Any, after: Node) -> None:
-        a = self.head
-        while a is not None:
-            if after==a.value:
-                break
-            a = a.next
-        if a is None:
-            print("tego elementu nie ma na liscie")
+    # def insert(self, value: Any, after: Node) -> None:
+    #     a = self.head
+    #     while a is not None:
+    #         if after==a.value:
+    #             break
+    #         a = a.next
+    #     if a is None:
+    #         print("tego elementu nie ma na liscie")
+    #     else:
+    #         nowe = Node(value)
+    #         nowe.next = a.next
+    #         a.next = nowe
+
+    def insert(self, value: Any, after: Node) ->None:
+        node = Node(value)
+        if after.next is not None:
+            a = after.next
+            after.next = node
+            node.next = a
         else:
-            nowe = Node(value)
-            nowe.next = a.next
-            a.next = nowe
+            after.next = node
+            self.tail = node
 
 
     #usunie pierwszy element z listy i go zwróci
@@ -75,7 +85,7 @@ class LinkedList:
             a.next = None
 
     #usunie z listy następnik węzła przekazanego w parametrze
-    def remove(self,after) -> Any:
+    def remove(self,after: Node) -> Any:
         if self.head is None:
             print('lista jest pusta')
         if after==self.head.value:
@@ -106,9 +116,6 @@ class LinkedList:
             a = a.next
         print(b)
 
-
-
-
     # dlugosc
     def len(self):
         licznik = 0
@@ -120,15 +127,105 @@ class LinkedList:
 
 
 
+###############################################################
+# Stack
+
+
+class Stack:
+    def __init__(self):
+        self.head = _storage = LinkedList
+
+
+
+#umieści nową wartość "na szczycie" stosu,
+# czyli zostanie dodana na końcu wewnętrznej listy
+#     def push(self, element: Any) -> None:
+#         element = self.element
+#         self._storage.append(element)
+
+
+
+#zwróci i usunie wartość ze szczytu stosu
+    def pop(self) -> Any:
+        pass
+
+
+    # def print(self):
+    #     # if self.head is None:
+    #     #     print("lista jest pusta")
+    #     #     return
+    #     a = LinkedList
+    #     b = ''
+    #     while a:
+    #         b += str(a.)
+    #         if a.next is not None:
+    #             b += ' ---> '
+    #         a = a.next
+    #     print(b)
+    #
+    # def len(self):
+    #     licznik = 0
+    #     a = self.head
+    #     while (a):
+    #         licznik += 1
+    #         a = a.next
+    #     return print(f'ilosc elementow w liscie: {licznik}')
+
+
+
+
+
+#######################################################
+# Kolejka
+
+class Queue:
+    def __init__(self):
+        self.front = self.rear = None
+
+
+    #zwróci wartość pierwszego elementu w kolejce
+    def peek(self) -> Any:
+        pass
+
+    #umieści nowy element na końcu kolejki
+    def  enqueue(self, element: Any) -> None:
+        pass
+
+    #zwróci i usunie pierwszy element w kolejce
+    def  dequeue(self) -> Any:
+        pass
+
+
+##################################################
+# TEST LISTA
+
 list_ = LinkedList()
 list_.push(1)
 list_.push(0)
 list_.append(9)
 list_.append(10)
+
+
+# middle_node = list_.node(at=1)
+# list_.insert(5, after=middle_node)
+
+# list_.print()
 # list_.remove_last()
 # list_.remove(1)
-list_.pop()
-# list_.node()
-# list_.insert(5,1)
-list_.print()
-list_.len()
+# list_.pop()
+# # list_.node()
+# # list_.insert(5,1)
+# list_.print()
+# list_.len()
+
+##################################################
+# TEST STOS
+
+# stack = Stack()
+# stack.print()
+# stack.len()
+
+
+
+##################################################
+# TEST KOLEJKA
