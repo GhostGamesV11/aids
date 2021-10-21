@@ -32,11 +32,11 @@ class LinkedList:
     # zwróci węzeł znajdujący się na wskazanej pozycji
     def node(self, at: int) -> Node:
         a = self.head
-        count = 0
+        licznik = 0
         while a is not None:
-            if count == at:
+            if licznik == at:
                 return a
-            count += 1
+            licznik += 1
             a = a.next
 
 
