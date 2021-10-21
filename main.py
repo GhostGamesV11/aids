@@ -41,7 +41,7 @@ class LinkedList:
 
 
     # #wstawi nowy węzeł tuż za węzłem wskazanym w parametrze
-    def insert(self, value, after):
+    def insert(self, value: Any, after: Node) -> None:
         a = self.head
         while a is not None:
             if after==a.value:
@@ -75,7 +75,7 @@ class LinkedList:
             a.next = None
 
     #usunie z listy następnik węzła przekazanego w parametrze
-    def remove(self,after):
+    def remove(self,after) -> Any:
         if self.head is None:
             print('lista jest pusta')
         if after==self.head.value:
@@ -125,10 +125,10 @@ list_.push(1)
 list_.push(0)
 list_.append(9)
 list_.append(10)
-list_.remove_last()
-list_.remove(1)
-# list_.pop()
+# list_.remove_last()
+# list_.remove(1)
+list_.pop()
 # list_.node()
-list_.insert(5,1)
+# list_.insert(5,1)
 list_.print()
 list_.len()
