@@ -65,9 +65,7 @@ class LinkedList:
 
     # usunie pierwszy element z listy i go zwróci
     def pop(self) -> Any:
-        if self.head is None:
-            print("blad")
-        else:
+        if self.head is not None:
             a = self.head
             print(f'element usuniety {self.head.value}')
             self.head = self.head.next
@@ -75,9 +73,7 @@ class LinkedList:
 
     # usunie ostatni element z listy i go zwróci
     def remove_last(self) -> Any:
-        if self.head is None:
-            print("blad")
-        else:
+        if self.head is not None:
             a = self.head
             while a.next.next is not None:
                 a = a.next
@@ -86,8 +82,6 @@ class LinkedList:
 
     # usunie z listy następnik węzła przekazanego w parametrze
     def remove(self, after: Node) -> Any:
-        if self.head is None:
-            print('lista jest pusta')
         if after == self.head.value:
             self.head = self.head.next
             return
@@ -116,11 +110,21 @@ class LinkedList:
     def __len__(self):
         licznik = 0
         a = self.head
-        while (a):
+        while a:
             licznik += 1
             a = a.next
         print(f'ilosc elementow w liscie: {licznik}')
         return licznik
+
+    def __str__(self):
+        a = self.head
+        b = ''
+        while a:
+            b += str(a.value)
+            if a.next is not None:
+                b += ' ---> '
+            a = a.next
+        return (b)
 
 ###############################################################
 # Stack
@@ -229,13 +233,13 @@ class Queue:
 ##################################################
 # TEST KOLEJKA
 
-queue = Queue()
-assert len(queue) == 0
-queue.enqueue('klient1')
-queue.enqueue('klient2')
-queue.enqueue('klient3')
-assert str(queue) == 'klient1, klient2, klient3'
-client_first = queue.dequeue()
-assert client_first == 'klient1'
-assert str(queue) == 'klient2, klient3'
-assert len(queue) == 2
+# queue = Queue()
+# assert len(queue) == 0
+# queue.enqueue('klient1')
+# queue.enqueue('klient2')
+# queue.enqueue('klient3')
+# assert str(queue) == 'klient1, klient2, klient3'
+# client_first = queue.dequeue()
+# assert client_first == 'klient1'
+# assert str(queue) == 'klient2, klient3'
+# assert len(queue) == 2
